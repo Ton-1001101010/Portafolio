@@ -383,3 +383,76 @@ hr {
     display: none;
   }
 }
+
+/* =========================================
+   ACTUALIZACIÓN RESPONSIVA
+   ========================================= */
+
+/* Ajuste preventivo para el menú de inicio en pantallas muy estrechas */
+.start-menu {
+  max-width: 100%;
+}
+
+.start-menu-body {
+  flex-wrap: wrap; /* Permite que las columnas se adapten si falta espacio */
+}
+
+.start-menu-col-left,
+.start-menu-col-right {
+  min-width: 150px;
+}
+
+/* Media Query optimizado para Móviles y Tablets */
+@media (max-width: 900px) {
+  body {
+    overflow-y: auto; /* Permite hacer scroll en móvil */
+  }
+
+  .desktop {
+    height: auto;
+    padding: 15px;
+    padding-bottom: 80px; /* Espacio extra para que la barra de tareas no tape contenido */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Separación limpia entre las ventanas apiladas */
+  }
+
+  /* Mostramos los iconos arriba en fila, en lugar de ocultarlos */
+  .desktop-icons {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* Transformamos las ventanas flotantes en bloques estáticos */
+  .window {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* Ajustes de la Barra de Tareas para no amontonar texto */
+  .taskbar-item {
+    display: none !important; /* Ocultamos el nombre de la app abierta por falta de espacio */
+  }
+
+  .start-text {
+    display: none; /* En móvil solo dejamos el logo de Windows para ahorrar espacio */
+  }
+
+  .start-btn {
+    padding: 0 15px; /* Ajustamos el botón de inicio */
+  }
+
+  /* Que el Menú de Inicio ocupe el ancho de la pantalla */
+  .start-menu {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+}
